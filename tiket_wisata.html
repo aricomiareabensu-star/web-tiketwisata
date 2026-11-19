@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tiket Wisata Pantai Psioner</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--latar:#EEF3F4;--kartu:#fff;--garis:#CBD6DA;--teks:#10263B;--redup:#51677A;--bar:#10263B;--laguna:#17808C;--kunyit:#E8A33D;--ok:#E3F2E9;--okb:#2C7A4B;--er:#F8E4DF;--erb:#B83F2A;--head:'Trebuchet MS','Segoe UI',system-ui,sans-serif;--isi:system-ui,'Segoe UI',Roboto,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--latar:#0E1A24;--kartu:#16283A;--garis:#2C4257;--teks:#E8EEF2;--redup:#9FB3C2;--bar:#0A121A;--ok:#17352A;--er:#3A1D18;color-scheme:dark}}
+:root[data-theme="dark"]{--latar:#0E1A24;--kartu:#16283A;--garis:#2C4257;--teks:#E8EEF2;--redup:#9FB3C2;--bar:#0A121A;--ok:#17352A;--er:#3A1D18;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--latar);color:var(--teks);font:1rem/1.55 var(--isi)}
+h1,h2,h3{font-family:var(--head);line-height:1.2;margin:0 0 .6em}
+h1{font-size:1.7rem}h2{font-size:1.2rem}
+.bar{background:var(--bar);color:#fff;display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;justify-content:space-between;padding:.8rem 1.1rem}
+.bar b{font:700 1.15rem var(--head)}
+.peran{display:flex;gap:.3rem;flex-wrap:wrap}
+.peran button{background:transparent;color:#fff;border:1px solid #ffffff66;border-radius:6px;padding:.3rem .8rem;font:inherit;cursor:pointer}
+.peran button.on{background:var(--kunyit);color:#10263B;border-color:var(--kunyit);font-weight:600}
+main{max-width:1000px;margin:0 auto;padding:1.5rem 1.1rem 3rem}
+.tabs{display:flex;gap:.5rem;margin-bottom:1.2rem}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;color:var(--teks);font:600 1rem var(--isi);padding:.3rem .2rem;cursor:pointer}
+.tabs button.on{border-color:var(--kunyit)}
+.btn{background:var(--kunyit);color:#10263B;border:0;border-radius:6px;padding:.6rem 1.1rem;font:600 1rem var(--isi);cursor:pointer}
+.btn.s{background:transparent;border:2px solid var(--teks);color:var(--teks)}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--laguna);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.1rem}
+.kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.kartu .cv{background:var(--laguna);color:#fff;height:100px;display:flex;align-items:flex-end;padding:.7rem 1rem;font:700 1.1rem var(--head)}
+.kartu .in{padding:1rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.kartu .in .btn{margin-top:auto}
+.rd{color:var(--redup);font-size:.93rem}
+.pnl{background:var(--kartu);border:1px solid var(--garis);border-radius:8px;padding:1.2rem;margin-bottom:1.1rem}
+.dua{display:grid;grid-template-columns:1.2fr 1fr;gap:1.2rem}
+@media(max-width:760px){.dua{grid-template-columns:1fr}}
+label{display:block;font-weight:600;margin:.8rem 0 .25rem}
+input,select{width:100%;padding:.55rem .65rem;border:1px solid #8CA0AB;border-radius:6px;font:inherit;background:var(--kartu);color:var(--teks)}
+.g{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--kartu)}
+th,td{text-align:left;padding:.5rem .65rem;border-bottom:1px solid var(--garis)}
+th{font-family:var(--head);font-size:.88rem}
+.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.9rem;margin-bottom:1.3rem}
+.st div{background:var(--kartu);border:1px solid var(--garis);border-radius:8px;padding:.9rem}
+.st strong{display:block;font:700 1.5rem var(--head)}
+.msg{padding:.7rem 1rem;border-radius:6px;border-left:5px solid;margin-bottom:1rem}
+.msg.ok{background:var(--ok);border-color:var(--okb)}.msg.er{background:var(--er);border-color:var(--erb)}
+.et{max-width:660px;margin:0 auto;display:flex;background:var(--kartu);border:2px solid var(--teks);border-radius:12px;overflow:hidden}
+.et .u{flex:1;padding:1.4rem}
+.et dl{display:grid;grid-template-columns:auto 1fr;gap:.3rem 1rem;margin:.9rem 0 0}
+.et dt{color:var(--redup)}.et dd{margin:0;font-weight:600}
+.et .p{width:200px;border-left:3px dashed var(--teks);background:var(--kunyit);color:#10263B;padding:1.1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;text-align:center}
+.et code{font-size:.68rem;word-break:break-all}
+#qr{background:#fff;padding:8px;border-radius:6px}
+@media(max-width:600px){.et{flex-direction:column}.et .p{width:auto;border-left:0;border-top:3px dashed var(--teks)}}
+.bd{display:inline-block;padding:.05rem .6rem;border-radius:99px;font-size:.85rem;font-weight:600;background:var(--garis)}
+.who{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;font-size:.95rem}
+.who .bd{color:#10263B}
+.rl-pengunjung{background:#8FD3DB!important}.rl-petugas{background:var(--kunyit)!important}.rl-admin{background:#F2B8A9!important}
+.bar .kel{background:transparent;color:#fff;border:1px solid #ffffff66;border-radius:6px;padding:.3rem .8rem;font:inherit;cursor:pointer}
+.auth{max-width:440px;margin:1rem auto}
+.auth .tabs{margin-bottom:0;border-bottom:1px solid var(--garis)}
+.auth .pnl{border-top-left-radius:0;border-top-right-radius:0;border-top:0}
+.auth .tabs button{flex:1;padding:.6rem .2rem}
+.auth .tabs button.on.pengunjung{border-color:#17808C}.auth .tabs button.on.petugas{border-color:var(--kunyit)}.auth .tabs button.on.admin{border-color:var(--erb)}
+.auth .btn{width:100%;margin-top:1rem}
+.link{background:none;border:0;color:var(--laguna);font:inherit;text-decoration:underline;cursor:pointer;padding:0}
+.btn.k{padding:.25rem .7rem;font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="bar"><b>Tiket Wisata Pantai Psioner</b><div class="peran" id="peran" role="tablist" aria-label="Pilih peran"></div></div>
+<main id="app"></main>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rp=n=>'Rp '+Number(n).toLocaleString('id-ID');
+const iso=d=>new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const hariIni=()=>iso(new Date());
+const plus=n=>{const d=new Date();d.setDate(d.getDate()+n);return iso(d)};
+const BLN=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+const tgl=t=>{const[y,m,d]=t.split('-');return +d+' '+BLN[+m-1]+' '+y};
+const DEF={seq:1,pesanan:[],kuota:{},dest:[
+{id:1,nama:'Pantai Psioner',lokasi:'Lhokseumawe, Aceh Utara',desk:'Destinasi wisata pantai di Lhokseumawe, Aceh Utara, untuk bersantai dan menikmati suasana pesisir bersama keluarga.',kuota:100,tiket:[{n:'Dewasa',h:5000},{n:'Anak-anak',h:3000}]}]};
+let S=(()=>{try{const r=localStorage.getItem('tw_state_psioner');if(r)return JSON.parse(r)}catch(e){}return JSON.parse(JSON.stringify(DEF))})();
+const simpan=()=>{try{localStorage.setItem('tw_state_psioner',JSON.stringify(S))}catch(e){}};
+const U={kode:'',auth:'pengunjung',reg:false,tab:'dest',pilih:null,bayar:null,tiket:null,msg:null,hasil:null};
+let SES=null;try{SES=JSON.parse(sessionStorage.getItem('tw_sesi_psioner'))}catch(e){}
+const simpanSesi=()=>{try{SES?sessionStorage.setItem('tw_sesi_psioner',JSON.stringify(SES)):sessionStorage.removeItem('tw_sesi_psioner')}catch(e){}};
+const ROLE={pengunjung:'Pengunjung',petugas:'Petugas',admin:'Admin'};
+const IZIN={tab:'pengunjung',pilih:'pengunjung',pesan:'pengunjung',bayar:'pengunjung',batal:'pengunjung',lanjut:'pengunjung',lihat:'pengunjung',tutup:'pengunjung',valid:'petugas',isikode:'petugas',kuota:'admin',reset:'admin',hapusptg:'admin'};
+const izin=a=>!!SES&&IZIN[a]===SES.role;
+const rand=()=>Array.from(crypto.getRandomValues(new Uint8Array(8)),x=>x.toString(16).padStart(2,'0')).join('');
+async function hash(pw,salt){
+  const data=new TextEncoder().encode(salt+':'+pw);
+  if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',data);return Array.from(new Uint8Array(b),x=>x.toString(16).padStart(2,'0')).join('')}
+  let h=5381;for(const c of data)h=((h<<5)+h+c)>>>0;return 'x'+h.toString(16);
+}
+const GAGAL={};
+function terkunci(k){const g=GAGAL[k];if(!g||g.n<5)return 0;if(Date.now()>=g.sampai){delete GAGAL[k];return 0}return Math.ceil((g.sampai-Date.now())/1000)}
+function catatGagal(k){const g=GAGAL[k]||(GAGAL[k]={n:0,sampai:0});g.n++;if(g.n>=5)g.sampai=Date.now()+60000}
+async function seed(){
+  S.users=S.users||[];S.staff=S.staff||[];S.uid=S.uid||1;
+  if(!S.staff.length){
+    for(const [id,nama,role,pw] of [['ADM-001','Administrator','admin','admin123'],['PTG-001','Petugas Loket','petugas','petugas123']]){const salt=rand();S.staff.push({id,nama,role,salt,pw:await hash(pw,salt)})}
+    simpan();
+  }
+  if(SES){const a=SES.role==='pengunjung'?S.users.find(u=>u.id===SES.id):S.staff.find(x=>x.id===SES.id&&x.role===SES.role);if(!a){SES=null;simpanSesi()}}
+}
+function masuk(role,a){SES={role,id:a.id,nama:a.nama};simpanSesi();U.pilih=U.bayar=U.tiket=null;U.hasil=null;U.tab='dest'}
+function keluar(){SES=null;simpanSesi();U.pilih=U.bayar=U.tiket=null;U.hasil=null;U.reg=false;pesan('Anda sudah keluar.')}
+const galat=t=>{const e=$('#autherr');if(e){e.textContent=t;e.hidden=false}};
+async function authAksi(a){
+  const m=U.auth;
+  if(a==='daftar'){
+    const nama=$('#f-nama').value.trim(),em=$('#f-id').value.trim().toLowerCase(),pw=$('#f-pw').value,pw2=$('#f-pw2').value;
+    if(nama.length<2)return galat('Isi nama lengkap.');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))return galat('Format email tidak valid.');
+    if(pw.length<6)return galat('Kata sandi minimal 6 karakter.');
+    if(pw!==pw2)return galat('Konfirmasi kata sandi tidak sama.');
+    if(S.users.some(u=>u.email===em))return galat('Email sudah terdaftar. Silakan masuk.');
+    const salt=rand(),u={id:'PGJ-'+String(S.uid++).padStart(3,'0'),nama,email:em,salt,pw:await hash(pw,salt)};
+    S.users.push(u);simpan();masuk('pengunjung',u);pesan('Akun berhasil dibuat. Selamat datang, '+nama+'.');render();
+    return;
+  }
+  const idv=$('#f-id').value.trim(),pw=$('#f-pw').value;
+  if(!idv||!pw)return galat('Isi '+(m==='pengunjung'?'email':'ID')+' dan kata sandi.');
+  const key=m+':'+idv.toLowerCase(),sisaDetik=terkunci(key);
+  if(sisaDetik)return galat('Terlalu banyak percobaan gagal. Coba lagi dalam '+sisaDetik+' detik.');
+  const acc=m==='pengunjung'?S.users.find(u=>u.email===idv.toLowerCase()):S.staff.find(x=>x.id.toLowerCase()===idv.toLowerCase()&&x.role===m);
+  const ok=acc&&(await hash(pw,acc.salt))===acc.pw;
+  if(!ok){catatGagal(key);return galat(m==='pengunjung'?'Email atau kata sandi salah.':'ID '+m+' atau kata sandi salah.')}
+  delete GAGAL[key];masuk(m,acc);pesan('Berhasil masuk sebagai '+ROLE[m].toLowerCase()+': '+acc.nama+'.');render();
+}
+async function tambahPtg(){
+  const nama=$('#pn').value.trim(),pw=$('#pp').value;
+  if(nama.length<2||pw.length<6){pesan('Isi nama petugas dan kata sandi awal (minimal 6 karakter).','er');return render()}
+  const n=Math.max(0,...S.staff.filter(x=>x.role==='petugas').map(x=>parseInt(x.id.slice(4),10)||0))+1,id='PTG-'+String(n).padStart(3,'0'),salt=rand();
+  S.staff.push({id,nama,role:'petugas',salt,pw:await hash(pw,salt)});simpan();
+  pesan('Petugas ditambahkan. ID login: '+id+'. Berikan ID dan kata sandi awal kepada petugas.');render();
+}
+async function aksiAsync(a){
+  if(a==='addptg'&&!(SES&&SES.role==='admin'))return;
+  try{a==='addptg'?await tambahPtg():await authAksi(a)}catch(e){galat('Terjadi kesalahan. Muat ulang halaman lalu coba lagi.')}
+}
+const D=id=>S.dest.find(d=>d.id===id);
+const kk=(id,t)=>id+'|'+t;
+const total=(d,t)=>(S.kuota[kk(d.id,t)]||{}).total??d.kuota;
+const pakai=(d,t)=>(S.kuota[kk(d.id,t)]||{}).used||0;
+const sisa=(d,t)=>Math.max(total(d,t)-pakai(d,t),0);
+function lepas(p){const k=S.kuota[kk(p.dest,p.tgl)];if(k)k.used=Math.max(k.used-p.jml,0)}
+function kedaluwarsa(){let b=false;S.pesanan.forEach(p=>{if(p.status==='menunggu'&&Date.now()>p.batas){p.status='dibatalkan';lepas(p);b=true}});if(b)simpan()}
+const lbl={menunggu:'Menunggu pembayaran',lunas:'Lunas',dibatalkan:'Dibatalkan'};
+const pesan=(t,k='ok')=>{U.msg={t,k}};
+
+function render(){
+  kedaluwarsa();
+  $('#peran').innerHTML=SES?`<span class="who"><span class="bd rl-${SES.role}">${ROLE[SES.role]}</span><span>${esc(SES.nama)} (${esc(SES.id)})</span><button class="kel" data-a="keluar">Keluar</button></span>`:'';
+  let h=U.msg?`<div class="msg ${U.msg.k}" role="status">${esc(U.msg.t)}</div>`:'';U.msg=null;
+  h+=!SES?vAuth():SES.role==='pengunjung'?vPengunjung():SES.role==='petugas'?vPetugas():vAdmin();
+  $('#app').innerHTML=h;
+  if(U.tiket)gambarQR();
+  if($('#jt'))upd();
+}
+function vAuth(){
+  const m=U.auth,reg=U.reg&&m==='pengunjung';
+  const tabs=['pengunjung','petugas','admin'].map(r=>`<button data-a="authmode" data-v="${r}" class="${r} ${m===r?'on':''}" role="tab" aria-selected="${m===r}">${ROLE[r]}</button>`).join('');
+  let f;
+  if(reg)f=`<h2>Daftar akun pengunjung</h2><label for="f-nama">Nama lengkap</label><input id="f-nama" autocomplete="name"><label for="f-id">Email</label><input id="f-id" type="email" autocomplete="email"><label for="f-pw">Kata sandi (minimal 6 karakter)</label><input id="f-pw" type="password" autocomplete="new-password"><label for="f-pw2">Ulangi kata sandi</label><input id="f-pw2" type="password" autocomplete="new-password"><p id="autherr" class="msg er" role="alert" hidden style="margin-top:1rem"></p><button class="btn" data-a="daftar" data-primary>Buat akun</button><p class="rd" style="text-align:center">Sudah punya akun? <button class="link" data-a="regtoggle">Masuk</button></p>`;
+  else if(m==='pengunjung')f=`<h2>Masuk sebagai pengunjung</h2><label for="f-id">Email</label><input id="f-id" type="email" autocomplete="username"><label for="f-pw">Kata sandi</label><input id="f-pw" type="password" autocomplete="current-password"><p id="autherr" class="msg er" role="alert" hidden style="margin-top:1rem"></p><button class="btn" data-a="masuk" data-primary>Masuk</button><p class="rd" style="text-align:center">Belum punya akun? <button class="link" data-a="regtoggle">Daftar</button></p>`;
+  else f=`<h2>Masuk sebagai ${m}</h2><p class="rd">Akun ${m} tidak bisa didaftarkan sendiri. Gunakan ID khusus (${m==='admin'?'ADM-xxx':'PTG-xxx'}) ${m==='admin'?'yang ada pada admin sistem':'yang diberikan admin'}.</p><label for="f-id">ID ${m}</label><input id="f-id" placeholder="${m==='admin'?'ADM-001':'PTG-001'}" autocomplete="username" autocapitalize="characters"><label for="f-pw">Kata sandi</label><input id="f-pw" type="password" autocomplete="current-password"><p id="autherr" class="msg er" role="alert" hidden style="margin-top:1rem"></p><button class="btn" data-a="masuk" data-primary>Masuk</button>`;
+  return `<h1 style="text-align:center">Selamat datang</h1><p class="rd" style="text-align:center">Masuk untuk memesan tiket atau mengelola Pantai Psioner.</p><div class="auth"><div class="tabs" role="tablist" aria-label="Jenis akun">${tabs}</div><section class="pnl">${f}</section></div>`;
+}
+function vPengunjung(){
+  if(U.tiket)return vTiket(S.pesanan.find(p=>p.id===U.tiket));
+  if(U.bayar)return vBayar(S.pesanan.find(p=>p.id===U.bayar));
+  const tabs=`<div class="tabs"><button data-a="tab" data-v="dest" class="${U.tab==='dest'?'on':''}">Pesan tiket</button><button data-a="tab" data-v="riwayat" class="${U.tab==='riwayat'?'on':''}">Pesanan saya</button></div>`;
+  if(U.tab==='riwayat')return tabs+vRiwayat();
+  return tabs+vBooking(D(1));
+}
+function vBooking(d){
+  return `<div class="dua"><section><h1>${esc(d.nama)}</h1><p class="rd">${esc(d.lokasi)}</p><div class="kartu"><div class="cv">${esc(d.nama)}</div><div class="in"><p>${esc(d.desk)}</p><table><tr><th>Jenis tiket</th><th>Harga</th></tr>${d.tiket.map(t=>`<tr><td>${esc(t.n)}</td><td>${rp(t.h)}</td></tr>`).join('')}</table><p class="rd">Harga dan kuota adalah data contoh.</p></div></div></section><section class="pnl"><h2>Pesan tiket</h2>
+<label for="jt">Jenis tiket</label><select id="jt">${d.tiket.map((t,i)=>`<option value="${i}">${esc(t.n)} (${rp(t.h)})</option>`).join('')}</select>
+<label for="tg">Tanggal kunjungan</label><input id="tg" type="date" min="${hariIni()}" max="${plus(90)}" value="${plus(1)}">
+<p class="rd" id="sisa" aria-live="polite"></p>
+<label for="jm">Jumlah tiket</label><input id="jm" type="number" min="1" max="20" value="1">
+<p><strong>Total: <span id="tot">-</span></strong></p><button class="btn" data-a="pesan">Pesan sekarang</button></section></div>`;
+}
+function upd(){
+  const d=D(1),t=$('#tg').value,i=+$('#jt').value,j=Math.max(parseInt($('#jm').value,10)||0,0);
+  $('#tot').textContent=rp(d.tiket[i].h*j);
+  $('#sisa').textContent=t?'Sisa kuota pada tanggal ini: '+sisa(d,t)+' tiket':'Pilih tanggal untuk melihat sisa kuota.';
+}
+function vBayar(p){
+  const d=D(p.dest);
+  return `<h1>Pembayaran ${esc(p.kode)}</h1><div class="dua"><section class="pnl"><h2>Rincian pesanan</h2><table><tr><th>Destinasi</th><td>${esc(d.nama)}</td></tr><tr><th>Tiket</th><td>${p.jml} x ${esc(d.tiket[p.tiket].n)}</td></tr><tr><th>Kunjungan</th><td>${tgl(p.tgl)}</td></tr><tr><th>Total</th><td><strong>${rp(p.total)}</strong></td></tr></table></section>
+<section class="pnl"><h2>Pilih metode pembayaran</h2><p class="rd">Bayar sebelum ${new Date(p.batas).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})}. Setelah itu pesanan dibatalkan otomatis.</p>
+<label for="mt">Metode</label><select id="mt"><option value="">Pilih metode</option><option>Transfer Bank</option><option>QRIS</option><option>E-Wallet</option></select>
+<p class="rd">Catatan: pembayaran di demo ini hanya simulasi.</p>
+<p><button class="btn" data-a="bayar" data-v="${p.id}">Bayar ${rp(p.total)}</button> <button class="btn s" data-a="batal" data-v="${p.id}">Batalkan pesanan</button></p></section></div>`;
+}
+function vTiket(p){
+  const d=D(p.dest);
+  return `<div class="et"><div class="u"><h1>${esc(d.nama)}</h1><span class="rd">${esc(d.lokasi)}</span><dl><dt>Kode pesanan</dt><dd>${esc(p.kode)}</dd><dt>Kunjungan</dt><dd>${tgl(p.tgl)}</dd><dt>Tiket</dt><dd>${p.jml} x ${esc(d.tiket[p.tiket].n)}</dd><dt>Total</dt><dd>${rp(p.total)}</dd><dt>Status</dt><dd>${p.validasi?'Sudah digunakan':'Belum digunakan'}</dd></dl></div>
+<div class="p"><div id="qr" aria-label="Kode QR e-tiket"></div><strong>Tunjukkan ke petugas</strong><code>${esc(p.qr)}</code></div></div>
+<p style="text-align:center;margin-top:1.2rem"><button class="btn s" data-a="tutup">Kembali ke pesanan</button></p>`;
+}
+function gambarQR(){
+  const p=S.pesanan.find(x=>x.id===U.tiket),el=$('#qr');
+  if(el&&window.QRCode)new QRCode(el,{text:p.qr,width:140,height:140});else if(el)el.style.display='none';
+}
+function vRiwayat(){
+  const l=S.pesanan.filter(p=>p.user===SES.id).reverse();
+  if(!l.length)return '<p>Anda belum punya pesanan. Pilih destinasi untuk mulai memesan.</p>';
+  return `<h1>Pesanan saya</h1><div class="g"><table><tr><th>Kode</th><th>Destinasi</th><th>Kunjungan</th><th>Tiket</th><th>Total</th><th>Status</th><th></th></tr>`+l.map(p=>`<tr><td>${esc(p.kode)}</td><td>${esc(D(p.dest).nama)}</td><td>${tgl(p.tgl)}</td><td>${p.jml} x ${esc(D(p.dest).tiket[p.tiket].n)}</td><td>${rp(p.total)}</td><td><span class="bd">${lbl[p.status]}</span></td><td>${p.status==='lunas'?`<button class="btn s" data-a="lihat" data-v="${p.id}">E-tiket</button>`:p.status==='menunggu'?`<button class="btn" data-a="lanjut" data-v="${p.id}">Bayar</button>`:''}</td></tr>`).join('')+`</table></div>`;
+}
+function vPetugas(){
+  const l=S.pesanan.filter(p=>p.status!=='dibatalkan').sort((x,y)=>(x.tgl===hariIni()?0:1)-(y.tgl===hariIni()?0:1)||x.tgl.localeCompare(y.tgl)||x.id-y.id);
+  const r=U.hasil?`<div class="msg ${U.hasil.k}" role="status">${esc(U.hasil.t)}</div>`:'';
+  const st=p=>p.status==='menunggu'?'Belum dibayar':p.validasi?'Sudah masuk':'Lunas, belum masuk';
+  const baris=p=>{const u=S.users.find(x=>x.id===p.user);return `<tr><td>${u?esc(u.nama):'-'}</td><td>${esc(p.kode)}</td><td>${tgl(p.tgl)}${p.tgl===hariIni()?' (hari ini)':''}</td><td>${p.jml} x ${esc(D(p.dest).tiket[p.tiket].n)}</td><td>${p.qr?`<code>${esc(p.qr)}</code>`:'<span class="rd">Belum terbit</span>'}</td><td><span class="bd">${st(p)}</span></td><td>${p.status==='lunas'&&!p.validasi?`<button class="btn s k" data-a="isikode" data-v="${esc(p.qr)}">Pakai kode</button>`:''}</td></tr>`};
+  return `<h1>Validasi tiket</h1><section class="pnl" style="max-width:440px"><label for="kd">Kode tiket (dari QR atau diketik manual)</label><input id="kd" autocomplete="off" value="${esc(U.kode||'')}"><p><button class="btn" data-a="valid">Validasi</button></p><p class="rd">Hanya tiket yang sudah lunas dan berlaku hari ini yang bisa divalidasi.</p></section>${r}<h2>Daftar pesanan pengunjung</h2>`+(l.length?`<div class="g"><table><tr><th>Pemesan</th><th>Kode pesanan</th><th>Kunjungan</th><th>Tiket</th><th>Kode tiket (QR)</th><th>Status</th><th></th></tr>`+l.map(baris).join('')+`</table></div>`:'<p>Belum ada pesanan dari pengunjung.</p>');
+}
+function vAdmin(){
+  const L=S.pesanan.filter(p=>p.status==='lunas'),d=D(1);
+  const tk=L.reduce((a,p)=>a+p.jml,0),pd=L.reduce((a,p)=>a+p.total,0),mn=S.pesanan.filter(p=>p.status==='menunggu').length;
+  const per=d.tiket.map((t,i)=>{const x=L.filter(p=>p.tiket===i);return `<tr><td>${esc(t.n)}</td><td>${x.reduce((a,p)=>a+p.jml,0)}</td><td>${rp(x.reduce((a,p)=>a+p.total,0))}</td></tr>`}).join('');
+  return `<h1>Dashboard admin: ${esc(d.nama)}</h1><div class="st"><div><span class="rd">Tiket terjual</span><strong>${tk}</strong></div><div><span class="rd">Pendapatan</span><strong>${rp(pd)}</strong></div><div><span class="rd">Pesanan lunas</span><strong>${L.length}</strong></div><div><span class="rd">Menunggu pembayaran</span><strong>${mn}</strong></div><div><span class="rd">Pengunjung terdaftar</span><strong>${S.users.length}</strong></div></div>
+<h2>Laporan per jenis tiket</h2><div class="g"><table><tr><th>Jenis tiket</th><th>Tiket terjual</th><th>Pendapatan</th></tr>${per}</table></div>
+<section class="pnl" style="margin-top:1.3rem;max-width:440px"><h2>Atur kuota tanggal tertentu</h2><p class="rd">${esc(d.nama)} (kuota bawaan ${d.kuota} tiket per hari)</p><label for="at">Tanggal</label><input id="at" type="date" min="${hariIni()}" max="${plus(90)}" value="${plus(1)}"><label for="ak">Kuota total</label><input id="ak" type="number" min="0" value="${d.kuota}"><p><button class="btn" data-a="kuota">Simpan kuota</button></p></section>
+<section class="pnl" style="margin-top:1.3rem"><h2>Akun petugas dan admin</h2><div class="g"><table><tr><th>ID login</th><th>Nama</th><th>Peran</th><th></th></tr>${S.staff.map(x=>`<tr><td><code>${esc(x.id)}</code></td><td>${esc(x.nama)}</td><td>${ROLE[x.role]}</td><td>${x.role==='petugas'?`<button class="btn s k" data-a="hapusptg" data-v="${esc(x.id)}">Hapus</button>`:''}</td></tr>`).join('')}</table></div>
+<h3 style="margin-top:1.2rem">Tambah petugas</h3><label for="pn">Nama petugas</label><input id="pn" autocomplete="off"><label for="pp">Kata sandi awal (minimal 6 karakter)</label><input id="pp" type="password" autocomplete="new-password"><p><button class="btn" data-a="addptg">Buat akun petugas</button></p><p class="rd">ID login dibuat otomatis dengan awalan PTG-.</p></section>
+<p><button class="btn s" data-a="reset">Reset semua data demo</button></p>`;
+}
+document.addEventListener('input',e=>{if(['jt','tg','jm'].includes(e.target.id)&&$('#jt'))upd()});
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-a]');if(!b)return;
+  const a=b.dataset.a,v=b.dataset.v;
+  if(a==='authmode'){U.auth=v;U.reg=false}
+  else if(a==='regtoggle'){U.reg=!U.reg}
+  else if(a==='keluar'){keluar()}
+  else if(['masuk','daftar','addptg'].includes(a)){aksiAsync(a);return}
+  else if(!izin(a)){return}
+  else if(a==='tab'){U.tab=v;U.pilih=null}
+  else if(a==='pilih'){U.pilih=v?+v:null}
+  else if(a==='pesan'){
+    const d=D(1),t=$('#tg').value,i=+$('#jt').value,j=parseInt($('#jm').value,10);
+    if(!t||t<hariIni()||t>plus(90))return pesan('Tanggal kunjungan tidak valid. Pilih tanggal mulai hari ini sampai 90 hari ke depan.','er'),render();
+    if(!(j>=1&&j<=20))return pesan('Jumlah tiket harus antara 1 dan 20.','er'),render();
+    if(sisa(d,t)<j)return pesan('Kuota tidak mencukupi. Sisa kuota: '+sisa(d,t)+' tiket. Kurangi jumlah atau pilih tanggal lain.','er'),render();
+    const k=S.kuota[kk(d.id,t)]||(S.kuota[kk(d.id,t)]={total:d.kuota,used:0});k.used+=j;
+    const p={id:S.seq++,kode:'TW'+t.slice(2).replace(/-/g,'')+Math.random().toString(16).slice(2,6).toUpperCase(),dest:d.id,tiket:i,tgl:t,jml:j,total:d.tiket[i].h*j,user:SES.id,status:'menunggu',batas:Date.now()+30*6e4,qr:null,validasi:false};
+    S.pesanan.push(p);simpan();U.pilih=null;U.bayar=p.id;
+  }
+  else if(a==='bayar'){
+    const p=S.pesanan.find(x=>x.id===+v);
+    if(!p||p.user!==SES.id)return;
+    if(!$('#mt').value)return pesan('Pilih metode pembayaran.','er'),render();
+    if(p.status!=='menunggu')return pesan('Pesanan ini sudah '+lbl[p.status].toLowerCase()+'.','er'),U.bayar=null,render();
+    p.status='lunas';p.metode=$('#mt').value;p.qr=Array.from(crypto.getRandomValues(new Uint8Array(12)),x=>x.toString(16).padStart(2,'0')).join('');
+    simpan();U.bayar=null;U.tiket=p.id;pesan('Pembayaran berhasil. E-tiket Anda sudah terbit.');
+  }
+  else if(a==='batal'){const p=S.pesanan.find(x=>x.id===+v);if(!p||p.user!==SES.id)return;if(p.status==='menunggu'){p.status='dibatalkan';lepas(p);simpan();pesan('Pesanan dibatalkan dan kuota dikembalikan.')}U.bayar=null;U.tab='riwayat'}
+  else if(a==='lanjut'){const p=S.pesanan.find(x=>x.id===+v);if(!p||p.user!==SES.id||p.status!=='menunggu')return;U.bayar=p.id}
+  else if(a==='lihat'){const p=S.pesanan.find(x=>x.id===+v);if(!p||p.user!==SES.id||p.status!=='lunas')return;U.tiket=p.id}
+  else if(a==='tutup'){U.tiket=null;U.tab='riwayat'}
+  else if(a==='isikode'){U.kode=v}
+  else if(a==='valid'){
+    U.kode=$('#kd').value.trim();
+    const p=S.pesanan.find(x=>x.qr&&x.qr===$('#kd').value.trim());
+    if(!p||p.status!=='lunas')U.hasil={k:'er',t:'Tiket tidak ditemukan atau belum lunas. Periksa kembali kode yang dimasukkan.'};
+    else if(p.validasi)U.hasil={k:'er',t:'Tiket SUDAH DIGUNAKAN. Pesanan '+p.kode+' tidak dapat dipakai lagi.'};
+    else if(p.tgl>hariIni())U.hasil={k:'er',t:'Belum waktunya. Tiket ini berlaku pada '+tgl(p.tgl)+'.'};
+    else if(p.tgl<hariIni())U.hasil={k:'er',t:'Tiket sudah kedaluwarsa. Tanggal kunjungan: '+tgl(p.tgl)+'.'};
+    else{p.validasi=true;simpan();U.hasil={k:'ok',t:'Tiket SAH. '+D(p.dest).nama+': '+p.jml+' tiket (pesanan '+p.kode+'). Silakan masuk.'}}
+  }
+  else if(a==='hapusptg'){const x=S.staff.find(y=>y.id===v&&y.role==='petugas');if(x&&confirm('Hapus akun petugas '+x.id+'?')){S.staff=S.staff.filter(y=>y!==x);simpan();pesan('Akun '+x.id+' dihapus.')}}
+  else if(a==='kuota'){
+    const d=D(1),t=$('#at').value,n=parseInt($('#ak').value,10);
+    if(!t||!(n>=0))return pesan('Isi tanggal dan kuota (tidak negatif).','er'),render();
+    const k=S.kuota[kk(d.id,t)]||(S.kuota[kk(d.id,t)]={total:d.kuota,used:0});
+    if(n<k.used)return pesan('Kuota baru tidak boleh lebih kecil dari tiket yang sudah dipesan ('+k.used+').','er'),render();
+    k.total=n;simpan();pesan('Kuota '+d.nama+' tanggal '+tgl(t)+' diatur menjadi '+n+'.');
+  }
+  else if(a==='reset'){if(confirm('Hapus semua pesanan dan pengaturan kuota?')){const u=S.users,st=S.staff,ui=S.uid;S=JSON.parse(JSON.stringify(DEF));S.users=u;S.staff=st;S.uid=ui;simpan();pesan('Data pesanan dan kuota direset. Akun tetap tersimpan.')}}
+  render();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.closest&&e.target.closest('.auth')&&e.target.tagName==='INPUT'){e.preventDefault();const b=$('.auth [data-primary]');if(b)b.click()}});
+seed().then(render);
+</script>
+</body>
+</html>
